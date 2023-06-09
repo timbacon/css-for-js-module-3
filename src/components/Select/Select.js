@@ -53,6 +53,10 @@ const PresentationalSelect = styled.div`
         outline: 1px dotted #121212;
         outline: 5px auto -webkit-focus-ring-color;
     }
+
+    ${NativeSelect}:over + & {
+        color: ${COLORS.black};
+    }
 `;
 
 const IconWrapper = styled.div`
