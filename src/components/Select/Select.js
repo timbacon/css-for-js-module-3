@@ -26,26 +26,7 @@ const Select = ({ label, value, onChange, children }) => {
 const Wrapper = styled.div`
     position: relative;
     width: max-content;
-`;
-
-const PresentationalSelect = styled.div`
-    background-color: ${COLORS.transparentGray15};
-    color: ${COLORS.gray700};
-    font-size: 1rem;
-    padding: 12px 16px;
-    padding-right: 52px;
-    border-radius: 4px;
-    border: none;
-`;
-
-const IconWrapper = styled.div`
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 10px;
-    margin: auto;
-    height: var(--size);
-    width: var(--size);
+    isolation: isolate;
 `;
 
 const NativeSelect = styled.select`
@@ -56,6 +37,33 @@ const NativeSelect = styled.select`
     height: 100%;
     opacity: 0;
     appearance: none;
+    z-index: 2;
+`;
+
+const PresentationalSelect = styled.div`
+    background-color: ${COLORS.transparentGray15};
+    color: ${COLORS.gray700};
+    font-size: 1rem;
+    padding: 12px 16px;
+    padding-right: 52px;
+    border-radius: 8px;
+    border: none;
+
+    ${NativeSelect}:focus + & {
+        outline: 1px dotted #121212;
+        outline: 5px auto -webkit-focus-ring-color;
+    }
+`;
+
+const IconWrapper = styled.div`
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 10px;
+    margin: auto;
+    height: var(--size);
+    width: var(--size);
+    z-index: 1;
 `;
 
 export default Select;
