@@ -15,8 +15,8 @@ const Select = ({ label, value, onChange, children }) => {
             </NativeSelect>
             <PresentationalSelect>
                 {displayedValue}
-                <IconWrapper>
-                    <Icon id='chevron-down' />
+                <IconWrapper style={{ '--size': '24px' }}>
+                    <Icon id='chevron-down' strokeWidth={1} size={24} />
                 </IconWrapper>
             </PresentationalSelect>
         </Wrapper>
@@ -33,12 +33,19 @@ const PresentationalSelect = styled.div`
     color: ${COLORS.gray700};
     font-size: 1rem;
     padding: 12px 16px;
+    padding-right: 52px;
     border-radius: 4px;
     border: none;
 `;
 
 const IconWrapper = styled.div`
-    display: inline;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 10px;
+    margin: auto;
+    height: var(--size);
+    width: var(--size);
 `;
 
 const NativeSelect = styled.select`
@@ -48,6 +55,7 @@ const NativeSelect = styled.select`
     width: 100%;
     height: 100%;
     opacity: 0;
+    appearance: none;
 `;
 
 export default Select;
