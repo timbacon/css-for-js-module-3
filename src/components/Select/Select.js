@@ -54,7 +54,7 @@ const PresentationalSelect = styled.div`
         outline: 5px auto -webkit-focus-ring-color;
     }
 
-    ${NativeSelect}:over + & {
+    ${NativeSelect}:hover + & {
         color: ${COLORS.black};
     }
 `;
